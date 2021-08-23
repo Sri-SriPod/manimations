@@ -6,7 +6,7 @@ This project was created for 3blue1brown's Summer of Math Exposition, and you ca
 ### [video_animations.nb](https://github.com/Sri-SriPod/manimations/blob/master/video_animations.nb)
 At around 6:32 of the video, I pulled up some animations in Wolfram Mathematica. Here is the file, in case you want to paste it into the app and check them out yourself. 
 
-#[power_tower.py](https://github.com/Sri-SriPod/manimations/blob/master/power_tower.py)
+# [power_tower.py](https://github.com/Sri-SriPod/manimations/blob/master/power_tower.py)
 When you run it, here's what it plays: 
 
 https://user-images.githubusercontent.com/69446878/130449026-f538b6a7-25c4-4c7a-91fc-3899914308d7.mp4
