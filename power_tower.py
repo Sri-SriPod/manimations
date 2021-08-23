@@ -69,5 +69,3 @@ for n in range(100): # loop
         recgroup = VGroup(finaltext, firsteq, secondeq)
         rec = SurroundingRectangle(recgroup)
         self.play(Create(rec))
-
-# manim -pql power_tower.py ClimbingPowers
