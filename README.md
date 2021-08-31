@@ -11,3 +11,5 @@ When you run it, here's what it plays:
 
 https://user-images.githubusercontent.com/69446878/130449026-f538b6a7-25c4-4c7a-91fc-3899914308d7.mp4
 
+This is not the full proof, however. For the full detailed proof, check out https://github.com/Sri-SriPod/manimations/blob/master/power_tower.pdf. 
+
