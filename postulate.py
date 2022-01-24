@@ -72,5 +72,3 @@ class Graphings(Scene):
 
 
 #  manim -pqh postulate.py
-
-# NEXT STEPS: EXTEND TO INTERSECT
