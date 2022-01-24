@@ -16,5 +16,5 @@ This is not the full proof, however. For the full detailed proof, check out http
 ## [postulate.py](https://github.com/Sri-SriPod/manimations/blob/master/postulate.py)
 
 This shows Euclid's 5th Postulate. When edited, this is what it plays: 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1BqP6lV5HlGyTYr5SwbO43QHYA0EvtASL/view?usp=sharing)
+
 
