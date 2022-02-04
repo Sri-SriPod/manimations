@@ -19,3 +19,9 @@ This shows Euclid's 5th Postulate. When edited, this is what it plays:
 
 [![Euclid's 5th Postulate](https://res.cloudinary.com/marcomontalbano/image/upload/v1643038903/video_to_markdown/images/google-drive--1BqP6lV5HlGyTYr5SwbO43QHYA0EvtASL-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/1BqP6lV5HlGyTYr5SwbO43QHYA0EvtASL/view "Euclid's 5th Postulate")
 
+## [quadratic.py](https://github.com/Sri-SriPod/manimations/blob/master/quadratic.py)
+
+This shows an alternate quadratic equation for even numbers as well as a simpler quadratic formula that was gotten from 3blue1brown's lockdown math episode. 
+
+This is what it plays: 
+https://drive.google.com/file/d/1aMTsgzKSudL8TLOGI_QW_7UR2U8m4kH4/view
