@@ -1,0 +1,112 @@
+from manim import *
+
+
+class OtherQuad(Scene):
+    def construct(self):
+        other = Text('The other quadratic equation:').shift(UP*2)
+        other_quad = MathTex(r'\frac{\frac{-b}{2}\pm\sqrt{\frac{b^2}{4}-ac}}{a}')
+        self.play(Write(other))
+        self.wait(1)
+        self.play(Write(other_quad))
+        other_quad2 = MathTex(r' = \frac{\frac{-b}{2}\pm\sqrt{\frac{1}{4}(b^2-4ac)}}{a}').next_to(other_quad)
+        self.play(Write(other_quad2))
+        gr = VGroup(other_quad, other_quad2)
+        self.play(gr.animate.shift(LEFT*5))
+        other_quad3 = MathTex(r'= \frac{\frac{-b}{2}\pm\frac{1}{2}\sqrt{b^2-4ac}}{a}').next_to(gr)
+        self.play(Write(other_quad3))
+        other_quad3_1 = MathTex(r'= \frac{\frac{-b}{2}\pm\frac{\sqrt{b^2-4ac}}{2}}{a}').next_to(gr)
+        self.play(TransformMatchingTex(other_quad3, other_quad3_1))
+        other_quad4 = MathTex(r' = \frac{-b\pm\sqrt{b^2-4ac}}{2a}').shift(DOWN*2)
+        self.play(Write(other_quad4))
+
+class Conclusion(Scene):
+    def construct(self):
+        conc = Text('Therefore, the other one works as well,\n and is easier for even b\'s.')
+        self.play(Write(conc))
+
+class SimplerQuad(Scene):
+    def construct(self):
+        quad = MathTex(r'ax^2 + bx + c').shift(UP*3)
+        self.play(Write(quad))
+        self.play(quad.animate.shift(LEFT*2))
+        self.wait(1)
+        quad2 = MathTex(r"= x^2 + b'x + c'").next_to(quad)
+        self.play(Write(quad2))
+        deriv = MathTex(r"(x-r)(x-s) = 0")
+        deriv1 = MathTex(r"x^2 - (r+s)x + rs = 0").shift(DOWN)
+        self.play(Write(deriv))
+        self.wait(1)
+        self.play(Write(deriv1))
+        self.wait(1)
+        derivgroup = VGroup(deriv, deriv1)
+        self.play(derivgroup.animate.shift(UP*2))
+        therefore = Tex('Therefore, ').set_color_by_tex('Therefore', BLUE)
+        self.play(Write(therefore))
+        bprime = MathTex(r"-(r+s) = b'").shift(DOWN)
+        cprime = MathTex(r"rs = c'").shift(DOWN*2)
+        self.play(Write(bprime))
+        self.wait(1)
+        self.play(Write(cprime))
+        primegroup = VGroup(bprime, cprime)
+        rect = SurroundingRectangle(primegroup)
+        primegroup2 = VGroup(primegroup, rect)
+        self.play(Create(rect))
+        self.play(Uncreate(therefore))
+        self.play(Unwrite(deriv))
+        self.play(Unwrite(deriv1))
+        self.play(Unwrite(quad))
+        self.play(Unwrite(quad2))
+        self.play(primegroup2.animate.shift(UP*4))
+
+class Visual(Scene):
+    def construct(self):
+        plane = NumberPlane(
+            axis_config={
+                "label_direction": DL - (3 * LEFT / 4)
+            },
+            y_axis_config={
+                "label_direction": DL
+            },
+            faded_line_ratio=2
+        )
+        plane.add_coordinates()
+        self.add(plane)
+        self.wait(1)
+        graph = plane.plot(lambda x: x**2 - 4, x_range=[-6, 6], use_smoothing=False, color=BLUE)
+        self.play(Create(graph))
+        coordinate = Dot(point=ORIGIN).shift(RIGHT*2)
+        label = Text('s').next_to(coordinate).shift(DOWN*0.2, LEFT*0.2)
+        self.play(Create(coordinate))
+        self.play(Write(label))
+        self.wait(1)
+        coordinate2 = Dot(point=ORIGIN).shift(LEFT*2)
+        label2 = Text('r').next_to(coordinate2).shift(DOWN*0.3, LEFT*0.7)
+        self.play(Create(coordinate2))
+        self.play(Write(label2))
+        coordinate3 = Dot(point=ORIGIN)
+        label3 = Text('m').next_to(coordinate3).shift(DOWN*0.5)
+        self.play(Create(coordinate3))
+        self.play(Write(label3))
+        braceline = Line(coordinate3, coordinate)
+        bracelabel= BraceLabel(braceline, 'm+d', UP)
+        braceline2 = Line(coordinate3, coordinate2)
+        bracelabel2 = BraceLabel(braceline2, 'm-d', UP)
+        self.play(Create(bracelabel))
+        self.play(Create(bracelabel2))
+        sols = MathTex(r"(m-d)(m+d) = c'").shift(UP*2, RIGHT*4.6)
+        sols2 = MathTex(r"= m^2 - d^2 = c'").shift(UP, RIGHT*4.5)
+        sols2_1 = MathTex(r"d^2 = m^2 - c'").shift(UP, RIGHT*4.5)
+        self.play(Write(sols))
+        self.play(Write(sols2))
+        self.play(ReplacementTransform(sols2, sols2_1))
+        sols2_2 = MathTex(r"d = \sqrt{m^2 - c}").shift(UP, RIGHT*4.5)
+        self.play(ReplacementTransform(sols2_1, sols2_2))
+        m = MathTex(r"m = \frac{r+s}{2}").shift(DOWN, RIGHT*4.5)
+        self.play(Write(m))
+        m2 = MathTex(r"m = \frac{-b'}{2}").shift(DOWN, RIGHT*4.5)
+        self.play(ReplacementTransform(m, m2))
+        x = MathTex(r"x = m \pm d").shift(DOWN*2, RIGHT*4.5)
+        self.play(Write(x))
+        simpquad = VGroup(m2, x, sols2_2)
+        quadrect = SurroundingRectangle(simpquad)
+        self.play(Create(quadrect))
